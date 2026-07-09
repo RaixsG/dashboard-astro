@@ -1,0 +1,20 @@
+{
+  "name": "dashboard-inabif",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Dashboard de monitoreo de riesgos sociales - INABIF en Acción",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/vue": "^7.0.1",
+    "astro": "^7.0.7",
+    "vue": "^3.5.39"
+  },
+  "packageManager": "pnpm@10.30.3"
+}
