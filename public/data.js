@@ -187,7 +187,7 @@ var DASHBOARD_DATA = {
   "deptos": [
     {
       "departamento": "LIMA",
-      "total": 6176
+      "total": 6180
     },
     {
       "departamento": "CALLAO",
@@ -203,11 +203,15 @@ var DASHBOARD_DATA = {
     },
     {
       "departamento": "AMAZONAS",
-      "total": 99
+      "total": 103
     },
     {
       "departamento": "PIURA",
       "total": 94
+    },
+    {
+      "departamento": "JUNIN",
+      "total": 75
     },
     {
       "departamento": "ANCASH",
@@ -218,24 +222,20 @@ var DASHBOARD_DATA = {
       "total": 66
     },
     {
-      "departamento": "JUNIN",
-      "total": 63
-    },
-    {
       "departamento": "HUANUCO",
-      "total": 58
+      "total": 66
     },
     {
       "departamento": "AYACUCHO",
       "total": 51
     },
     {
-      "departamento": "HUANCAVELICA",
-      "total": 44
+      "departamento": "APURIMAC",
+      "total": 50
     },
     {
-      "departamento": "APURIMAC",
-      "total": 39
+      "departamento": "HUANCAVELICA",
+      "total": 44
     },
     {
       "departamento": "CAJAMARCA",
@@ -249,7 +249,7 @@ var DASHBOARD_DATA = {
   "distritos": [
     {
       "distrito": "LIMA",
-      "total": 1116
+      "total": 1127
     },
     {
       "distrito": "SAN JUAN DE MIRAFLORES",
@@ -268,7 +268,7 @@ var DASHBOARD_DATA = {
       "total": 421
     },
     {
-      "distrito": "BREÑA",
+      "distrito": "BRENA",
       "total": 409
     },
     {
@@ -320,18 +320,18 @@ var DASHBOARD_DATA = {
       "total": 120
     },
     {
-      "distrito": "LA VICTORIA",
-      "total": 106
+      "distrito": "JESUS MARIA",
+      "total": 107
     },
     {
-      "distrito": "JESUS MARIA",
-      "total": 104
+      "distrito": "LA VICTORIA",
+      "total": 106
     }
   ],
   "mapa_depto": [
     {
       "DEP_RES": "AMAZONAS",
-      "total": 97,
+      "total": 101,
       "emergencias": 0,
       "urgencias": 24
     },
@@ -343,15 +343,9 @@ var DASHBOARD_DATA = {
     },
     {
       "DEP_RES": "APURIMAC",
-      "total": 35,
+      "total": 46,
       "emergencias": 0,
-      "urgencias": 6
-    },
-    {
-      "DEP_RES": "APURÍMAC",
-      "total": 7,
-      "emergencias": 0,
-      "urgencias": 1
+      "urgencias": 8
     },
     {
       "DEP_RES": "AREQUIPA",
@@ -364,12 +358,6 @@ var DASHBOARD_DATA = {
       "total": 47,
       "emergencias": 4,
       "urgencias": 19
-    },
-    {
-      "DEP_RES": "AYMARAES",
-      "total": 4,
-      "emergencias": 0,
-      "urgencias": 1
     },
     {
       "DEP_RES": "CAJAMARCA",
@@ -397,21 +385,9 @@ var DASHBOARD_DATA = {
     },
     {
       "DEP_RES": "HUANUCO",
-      "total": 53,
+      "total": 61,
       "emergencias": 1,
-      "urgencias": 17
-    },
-    {
-      "DEP_RES": "HUAROCHIRI",
-      "total": 4,
-      "emergencias": 0,
-      "urgencias": 1
-    },
-    {
-      "DEP_RES": "HUÁNUCO",
-      "total": 8,
-      "emergencias": 0,
-      "urgencias": 2
+      "urgencias": 19
     },
     {
       "DEP_RES": "ICA",
@@ -421,15 +397,9 @@ var DASHBOARD_DATA = {
     },
     {
       "DEP_RES": "JUNIN",
-      "total": 56,
+      "total": 68,
       "emergencias": 2,
-      "urgencias": 10
-    },
-    {
-      "DEP_RES": "JUNÍN",
-      "total": 12,
-      "emergencias": 0,
-      "urgencias": 2
+      "urgencias": 12
     },
     {
       "DEP_RES": "LA LIBERTAD",
@@ -445,9 +415,9 @@ var DASHBOARD_DATA = {
     },
     {
       "DEP_RES": "LIMA",
-      "total": 5844,
+      "total": 5848,
       "emergencias": 261,
-      "urgencias": 2580
+      "urgencias": 2581
     },
     {
       "DEP_RES": "LORETO",
@@ -502,12 +472,6 @@ var DASHBOARD_DATA = {
       "total": 34,
       "emergencias": 3,
       "urgencias": 23
-    },
-    {
-      "DEP_RES": "UTCUBAMBA",
-      "total": 4,
-      "emergencias": 0,
-      "urgencias": 0
     }
   ],
   "acciones": [
