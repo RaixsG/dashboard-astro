@@ -7,6 +7,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { tEspecialidad } from './translations.js';
 
 const props = defineProps({
   data: { type: Array, required: true }
@@ -19,7 +20,7 @@ onMounted(() => {
   new Chart(canvasRef.value.getContext('2d'), {
     type: 'pie',
     data: {
-      labels: props.data.map(e => e.ESP_ATE_DESC),
+      labels: props.data.map(e => tEspecialidad(e.ESP_ATE_DESC)),
       datasets: [{ data: props.data.map(e => e.total), backgroundColor: ['#0d6efd','#dc3545','#198754'] }]
     },
     options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom'}} }

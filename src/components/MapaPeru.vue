@@ -11,7 +11,8 @@ import { COORDS } from './data.js';
 
 const props = defineProps({
   data: { type: Array, required: true },
-  casoFiltro: { type: String, default: 'all' }
+  casoFiltro: { type: String, default: 'all' },
+  deptoFiltro: { type: String, default: 'all' }
 });
 
 const mapRef = ref(null);
@@ -21,10 +22,17 @@ function render() {
   if (map) { map.remove(); map = null; }
   if (!mapRef.value) return;
 
-  map = L.map(mapRef.value).setView([-9.2, -74.5], 6);
+  const center = props.deptoFiltro !== 'all' && COORDS[props.deptoFiltro] ? COORDS[props.deptoFiltro] : [-9.2, -74.5];
+  const zoom = props.deptoFiltro !== 'all' ? 8 : 6;
+  map = L.map(mapRef.value).setView(center, zoom);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:18, attribution:'OSM' }).addTo(map);
 
   let deptoData = [...props.data];
+
+  if (props.deptoFiltro !== 'all') {
+    deptoData = deptoData.filter(d => d.DEP_RES === props.deptoFiltro);
+  }
+
   let maxV = Math.max(...deptoData.map(d => d.total), 1);
 
   if (props.casoFiltro !== 'all') {
@@ -46,7 +54,7 @@ function render() {
 }
 
 onMounted(render);
-watch([() => props.data, () => props.casoFiltro], render, { deep: true });
+watch([() => props.data, () => props.casoFiltro, () => props.deptoFiltro], render, { deep: true });
 </script>
 
 <style scoped>

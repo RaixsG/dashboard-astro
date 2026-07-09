@@ -7,6 +7,7 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
+import { tSexo } from './translations.js';
 
 const props = defineProps({
   data: { type: Array, required: true }
@@ -21,7 +22,7 @@ function render() {
   const ctx = canvasRef.value.getContext('2d');
   chart = new Chart(ctx, {
     type: 'doughnut',
-    data: { labels: props.data.map(s => s.label), datasets: [{ data: props.data.map(s => s.total), backgroundColor: ['#0d6efd','#dc3545'] }] },
+    data: { labels: props.data.map(s => tSexo(s.label)), datasets: [{ data: props.data.map(s => s.total), backgroundColor: ['#0d6efd','#dc3545'] }] },
     options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom'}} }
   });
 }

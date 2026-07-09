@@ -20,7 +20,7 @@
         <label>Grupo Etario</label>
         <select v-model="local.grupo" class="form-select form-select-sm" @change="emitFilter">
           <option value="all">Todos</option>
-          <option v-for="g in grupos" :key="g" :value="g">{{ g }}</option>
+          <option v-for="g in grupos" :key="g" :value="g">{{ tGrupo(g) }}</option>
         </select>
       </div>
       <div class="col-md-3">
@@ -36,6 +36,7 @@
 
 <script setup>
 import { reactive } from 'vue';
+import { tGrupo } from './translations.js';
 
 const props = defineProps({
   deptos: { type: Array, default: () => [] },

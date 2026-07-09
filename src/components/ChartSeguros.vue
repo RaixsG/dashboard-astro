@@ -7,6 +7,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { tSeguro } from './translations.js';
 
 const props = defineProps({
   data: { type: Array, required: true }
@@ -19,7 +20,7 @@ onMounted(() => {
   new Chart(canvasRef.value.getContext('2d'), {
     type: 'doughnut',
     data: {
-      labels: props.data.map(s => s.TIP_SEG_SAL_DESC),
+      labels: props.data.map(s => tSeguro(s.TIP_SEG_SAL_DESC)),
       datasets: [{ data: props.data.map(s => s.total), backgroundColor: ['#0d6efd','#198754','#ffc107','#dc3545','#6f42c1','#fd7e14'] }]
     },
     options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom'}} }

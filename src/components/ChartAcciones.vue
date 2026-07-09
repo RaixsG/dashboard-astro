@@ -7,6 +7,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { tAccion } from './translations.js';
 
 const props = defineProps({
   data: { type: Array, required: true }
@@ -19,7 +20,7 @@ onMounted(() => {
   new Chart(canvasRef.value.getContext('2d'), {
     type: 'bar',
     data: {
-      labels: props.data.map(a => a.ACC_AT_DESC.substring(0,20)),
+      labels: props.data.map(a => tAccion(a.ACC_AT_DESC).substring(0,25)),
       datasets: [{ label:'Casos', data: props.data.map(a => a.total), backgroundColor: '#0d6efd' }]
     },
     options: { responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{display:false}} }

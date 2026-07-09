@@ -7,6 +7,7 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
+import { tGrupo } from './translations.js';
 
 const props = defineProps({
   grupos: { type: Array, required: true },
@@ -27,7 +28,7 @@ function render() {
   const ctx = canvasRef.value.getContext('2d');
   chart = new Chart(ctx, {
     type: 'bar',
-    data: { labels: ge.map(g => g.GRU_ET_DESC), datasets: ds },
+    data: { labels: ge.map(g => tGrupo(g.GRU_ET_DESC)), datasets: ds },
     options: { responsive:true, maintainAspectRatio:false, scales: { x: { stacked: true }, y: { stacked: true } } }
   });
 }

@@ -12,7 +12,7 @@
 
     <div class="row g-3 mb-4">
       <div class="col-lg-8">
-        <ChartEvolucion :data="evolucionFiltrada" />
+        <ChartEvolucion :data="evolucionFiltrada" :casoFiltro="filters.caso" />
       </div>
       <div class="col-lg-4">
         <ChartGrupoEtario
@@ -28,7 +28,7 @@
         <ChartSexo :data="sexoData" />
       </div>
       <div class="col-lg-8">
-        <MapaPeru :data="raw.mapa_depto" :casoFiltro="filters.caso" />
+        <MapaPeru :data="raw.mapa_depto" :casoFiltro="filters.caso" :deptoFiltro="filters.depto" />
       </div>
     </div>
 
@@ -49,7 +49,7 @@
         <ChartRiesgo :data="riesgoData" />
       </div>
       <div class="col-lg-6">
-        <TablaDistritos :distritos="raw.distritos" :deptoFiltro="filters.depto" />
+        <TablaDistritos :distritos="raw.distritos" />
       </div>
     </div>
 
@@ -106,15 +106,20 @@ const kpis = computed(() => {
   if (!raw.value) return { total: 0, emergencias: 0, urgencias: 0, activos: 0, sinClasif: 0, pctEmerg: '0.0', pctUrg: '0.0' };
   let evol = raw.value.evolucion;
   if (filters.anio !== 'all') evol = evol.filter(e => e.ANIO === parseInt(filters.anio));
-  const total = evol.reduce((s, e) => s + e.total_casos, 0);
+  const totalEvol = evol.reduce((s, e) => s + e.total_casos, 0);
   const emg = evol.reduce((s, e) => s + e.emergencias, 0);
   const urg = evol.reduce((s, e) => s + e.urgencias, 0);
+  const showEmerg = filters.caso === '1';
+  const showUrg = filters.caso === '2';
+  const total = showEmerg ? emg : showUrg ? urg : totalEvol;
+  const emgDisplay = showUrg ? 0 : emg;
+  const urgDisplay = showEmerg ? 0 : urg;
   return {
-    total, emergencias: emg, urgencias: urg,
+    total, emergencias: emgDisplay, urgencias: urgDisplay,
     activos: raw.value.kpis.activos,
     sinClasif: raw.value.kpis.sin_clasificar || 0,
-    pctEmerg: total > 0 ? (emg / total * 100).toFixed(1) : '0.0',
-    pctUrg: total > 0 ? (urg / total * 100).toFixed(1) : '0.0'
+    pctEmerg: total > 0 ? (emgDisplay / total * 100).toFixed(1) : '0.0',
+    pctUrg: total > 0 ? (urgDisplay / total * 100).toFixed(1) : '0.0'
   };
 });
 
@@ -137,12 +142,13 @@ const mostrarUrgen = computed(() => filters.caso === 'all' || filters.caso === '
 
 const sexoData = computed(() => {
   if (!raw.value) return [];
+  const rawKpi = raw.value.kpis;
   if (filters.caso === '1') {
-    const factor = raw.value.kpis.emergencias / raw.value.kpis.total;
+    const factor = rawKpi.total > 0 ? rawKpi.emergencias / rawKpi.total : 0;
     return raw.value.sexo.map(s => ({ label: s.SEXO_USU_DESC, total: Math.round(s.total * factor) }));
   }
   if (filters.caso === '2') {
-    const factor = raw.value.kpis.urgencias / raw.value.kpis.total;
+    const factor = rawKpi.total > 0 ? rawKpi.urgencias / rawKpi.total : 0;
     return raw.value.sexo.map(s => ({ label: s.SEXO_USU_DESC, total: Math.round(s.total * factor) }));
   }
   return raw.value.sexo.map(s => ({ label: s.SEXO_USU_DESC, total: s.total }));

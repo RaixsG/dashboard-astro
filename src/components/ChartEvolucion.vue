@@ -9,7 +9,8 @@
 import { ref, onMounted, watch } from 'vue';
 
 const props = defineProps({
-  data: { type: Array, required: true }
+  data: { type: Array, required: true },
+  casoFiltro: { type: String, default: 'all' }
 });
 
 const canvasRef = ref(null);
@@ -19,22 +20,28 @@ function render() {
   if (chart) chart.destroy();
   if (!canvasRef.value || !props.data.length) return;
   const ctx = canvasRef.value.getContext('2d');
+  const datasets = [];
+  if (props.casoFiltro === 'all') {
+    datasets.push({ label: 'Total', data: props.data.map(e=>e.total_casos), borderColor:'#0d6efd', backgroundColor:'rgba(13,110,253,0.1)', fill:true, tension:0.3 });
+    datasets.push({ label: 'Emergencias', data: props.data.map(e=>e.emergencias), borderColor:'#dc3545', backgroundColor:'rgba(220,53,69,0.1)', fill:true, tension:0.3 });
+    datasets.push({ label: 'Urgencias', data: props.data.map(e=>e.urgencias), borderColor:'#ffc107', backgroundColor:'rgba(255,193,7,0.1)', fill:true, tension:0.3 });
+  } else if (props.casoFiltro === '1') {
+    datasets.push({ label: 'Emergencias', data: props.data.map(e=>e.emergencias), borderColor:'#dc3545', backgroundColor:'rgba(220,53,69,0.1)', fill:true, tension:0.3 });
+  } else if (props.casoFiltro === '2') {
+    datasets.push({ label: 'Urgencias', data: props.data.map(e=>e.urgencias), borderColor:'#ffc107', backgroundColor:'rgba(255,193,7,0.1)', fill:true, tension:0.3 });
+  }
   chart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: props.data.map(e => e.MES.substring(0,3) + ' ' + e.ANIO),
-      datasets: [
-        { label: 'Total', data: props.data.map(e=>e.total_casos), borderColor:'#0d6efd', backgroundColor:'rgba(13,110,253,0.1)', fill:true, tension:0.3 },
-        { label: 'Emergencias', data: props.data.map(e=>e.emergencias), borderColor:'#dc3545', backgroundColor:'rgba(220,53,69,0.1)', fill:true, tension:0.3 },
-        { label: 'Urgencias', data: props.data.map(e=>e.urgencias), borderColor:'#ffc107', backgroundColor:'rgba(255,193,7,0.1)', fill:true, tension:0.3 }
-      ]
+      datasets
     },
     options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top'}} }
   });
 }
 
 onMounted(render);
-watch(() => props.data, render, { deep: true });
+watch([() => props.data, () => props.casoFiltro], render, { deep: true });
 </script>
 
 <style scoped>

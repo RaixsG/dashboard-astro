@@ -18,17 +18,10 @@
 import { computed } from 'vue';
 
 const props = defineProps({
-  distritos: { type: Array, required: true },
-  deptoFiltro: { type: String, default: 'all' }
+  distritos: { type: Array, required: true }
 });
 
-const distritosFiltrados = computed(() => {
-  let data = [...props.distritos];
-  if (props.deptoFiltro !== 'all') {
-    data = data.filter(d => d.distrito.includes(props.deptoFiltro));
-  }
-  return data.slice(0, 20);
-});
+const distritosFiltrados = computed(() => props.distritos.slice(0, 20));
 </script>
 
 <style scoped>

@@ -132,43 +132,43 @@ var DASHBOARD_DATA = {
   ],
   "grupo_etario": [
     {
-      "GRU_ET_DESC": "0 - 11 meses",
+      "GRU_ET_DESC": "0-11 months",
       "total": 16,
       "emergencias": 4,
       "urgencias": 6
     },
     {
-      "GRU_ET_DESC": "1 - 5 anos",
+      "GRU_ET_DESC": "1-5 years",
       "total": 43,
       "emergencias": 5,
       "urgencias": 22
     },
     {
-      "GRU_ET_DESC": "6 - 11 anos",
+      "GRU_ET_DESC": "6-11 years",
       "total": 127,
       "emergencias": 10,
       "urgencias": 55
     },
     {
-      "GRU_ET_DESC": "12 - 17 anos",
+      "GRU_ET_DESC": "12-17 years",
       "total": 157,
       "emergencias": 6,
       "urgencias": 64
     },
     {
-      "GRU_ET_DESC": "18 - 25 anos",
+      "GRU_ET_DESC": "18-25 years",
       "total": 507,
       "emergencias": 16,
       "urgencias": 195
     },
     {
-      "GRU_ET_DESC": "26 - 59 anos",
+      "GRU_ET_DESC": "26-59 years",
       "total": 4021,
       "emergencias": 205,
       "urgencias": 1655
     },
     {
-      "GRU_ET_DESC": "60 a mas anos",
+      "GRU_ET_DESC": "60+ years",
       "total": 1507,
       "emergencias": 86,
       "urgencias": 734
@@ -176,12 +176,12 @@ var DASHBOARD_DATA = {
   ],
   "sexo": [
     {
-      "SEXO_USU_DESC": "Hombre",
-      "total": 2068
+      "SEXO_USU_DESC": "Female",
+      "total": 4310
     },
     {
-      "SEXO_USU_DESC": "Mujer",
-      "total": 4310
+      "SEXO_USU_DESC": "Male",
+      "total": 2068
     }
   ],
   "deptos": [
@@ -512,51 +512,51 @@ var DASHBOARD_DATA = {
   ],
   "acciones": [
     {
-      "ACC_AT_DESC": "Atencion social",
+      "ACC_AT_DESC": "Social care",
       "total": 216
     },
     {
-      "ACC_AT_DESC": "Orientacion social",
+      "ACC_AT_DESC": "Social guidance",
       "total": 97
     },
     {
-      "ACC_AT_DESC": "Gestion y/o coordinacion",
+      "ACC_AT_DESC": "Management/coordination",
       "total": 89
     },
     {
-      "ACC_AT_DESC": "Orientacion y/o consejeria",
+      "ACC_AT_DESC": "Counseling",
       "total": 47
     },
     {
-      "ACC_AT_DESC": "Visita domiciliaria",
+      "ACC_AT_DESC": "Home visit",
       "total": 47
     },
     {
-      "ACC_AT_DESC": "Soporte emocional",
+      "ACC_AT_DESC": "Emotional support",
       "total": 42
     },
     {
-      "ACC_AT_DESC": "Articulacion con redes",
+      "ACC_AT_DESC": "Network articulation",
       "total": 41
     },
     {
-      "ACC_AT_DESC": "Intervencion en crisis",
+      "ACC_AT_DESC": "Crisis intervention",
       "total": 18
     },
     {
-      "ACC_AT_DESC": "Orientacion familiar",
+      "ACC_AT_DESC": "Family guidance",
       "total": 14
     },
     {
-      "ACC_AT_DESC": "Visita institucional",
+      "ACC_AT_DESC": "Institutional visit",
       "total": 12
     },
     {
-      "ACC_AT_DESC": "Orientacion legal",
+      "ACC_AT_DESC": "Legal guidance",
       "total": 11
     },
     {
-      "ACC_AT_DESC": "Primeros auxilios psicologicos",
+      "ACC_AT_DESC": "Psychological first aid",
       "total": 6
     }
   ],
@@ -566,7 +566,7 @@ var DASHBOARD_DATA = {
       "total": 15
     },
     {
-      "ESP_ATE_DESC": "Psicologico",
+      "ESP_ATE_DESC": "Psychological",
       "total": 122
     },
     {
@@ -580,49 +580,45 @@ var DASHBOARD_DATA = {
       "total": 54
     },
     {
-      "TIP_SEG_SAL_DESC": "No afiliado",
-      "total": 10
-    },
-    {
-      "TIP_SEG_SAL_DESC": "Privado",
+      "TIP_SEG_SAL_DESC": "Private",
       "total": 30
-    },
-    {
-      "TIP_SEG_SAL_DESC": "S/D",
-      "total": 37
     },
     {
       "TIP_SEG_SAL_DESC": "SIS",
       "total": 509
+    },
+    {
+      "TIP_SEG_SAL_DESC": "Uninsured",
+      "total": 10
     }
   ],
   "riesgo_transicion": [
     {
-      "GRU_ET_DESC": "0 - 11 meses",
+      "GRU_ET_DESC": "0-11 months",
       "pct_emergencia": 25.0
     },
     {
-      "GRU_ET_DESC": "1 - 5 anos",
+      "GRU_ET_DESC": "1-5 years",
       "pct_emergencia": 11.6
     },
     {
-      "GRU_ET_DESC": "6 - 11 anos",
+      "GRU_ET_DESC": "6-11 years",
       "pct_emergencia": 7.9
     },
     {
-      "GRU_ET_DESC": "12 - 17 anos",
+      "GRU_ET_DESC": "12-17 years",
       "pct_emergencia": 3.8
     },
     {
-      "GRU_ET_DESC": "18 - 25 anos",
+      "GRU_ET_DESC": "18-25 years",
       "pct_emergencia": 3.2
     },
     {
-      "GRU_ET_DESC": "26 - 59 anos",
+      "GRU_ET_DESC": "26-59 years",
       "pct_emergencia": 5.1
     },
     {
-      "GRU_ET_DESC": "60 a mas anos",
+      "GRU_ET_DESC": "60+ years",
       "pct_emergencia": 5.7
     }
   ]

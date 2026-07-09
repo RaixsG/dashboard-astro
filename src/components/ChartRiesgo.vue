@@ -7,6 +7,7 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
+import { tGrupo } from './translations.js';
 
 const props = defineProps({
   data: { type: Array, required: true }
@@ -22,7 +23,7 @@ function render() {
   chart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: props.data.map(r => r.GRU_ET_DESC),
+      labels: props.data.map(r => tGrupo(r.GRU_ET_DESC)),
       datasets: [{
         label:'% Emergencia sobre total',
         data: props.data.map(r => r.pct_emergencia),
